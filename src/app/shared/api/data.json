@@ -1,0 +1,141 @@
+{
+  "manager": [
+    {
+      "id": 1,
+      "firstName": "AKSHAY",
+      "lastName": "KANDEKAR",
+      "email": "cd@gmail.com",
+      "password": "123@123",
+      "address": "PUNE",
+      "bdate": "14 Aug 1998"
+    },
+    {
+      "firstName": "er",
+      "lastName": "er",
+      "email": "we",
+      "password": "1234",
+      "address": "asdxas",
+      "bdate": "78/78/7878",
+      "id": 2
+    },
+    {
+      "firstName": "ABC",
+      "lastName": "ABC",
+      "email": "akan@gmail.com",
+      "password": "Rnzs7NvUL5snLbhkEFI+9g==",
+      "address": "PUNE",
+      "bdate": "14/08/1998",
+      "id": 3
+    },
+    {
+      "firstName": "XYZ",
+      "lastName": "XYZ",
+      "email": "xyz@gmail.com",
+      "password": "n7BQRB6xdk75mqpGLZ/6Fw==",
+      "address": "PUNE",
+      "bdate": "14/08/1998",
+      "id": 4
+    },
+    {
+      "firstName": "qw",
+      "lastName": "qw",
+      "email": "qw@gmail.com",
+      "password": "U66YrRi3IACll2O5cWX+FQ==",
+      "address": "PUNE",
+      "bdate": "14951956",
+      "id": 5
+    },
+    {
+      "firstName": "ml",
+      "lastName": "ml",
+      "email": "ml@gmail.com",
+      "password": "XXVSMVwyp6vQNTKK6+qvWA==",
+      "address": "PUNE",
+      "bdate": "49865123",
+      "id": 6
+    },
+    {
+      "firstName": "yu",
+      "lastName": "yu",
+      "email": "yuvyghbj",
+      "password": "7ktc3+i9AslhKsa7MrKRCA==",
+      "address": "PUNE",
+      "bdate": "2021-07-06",
+      "id": 7
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "firstName": "AKSHAY",
+      "lastName": "KANDEKAR",
+      "mobile": 8888888888,
+      "city": "PUNE",
+      "address": "PUNE",
+      "bdate": "14 Aug 1998"
+    },
+    {
+      "id": 2,
+      "firstName": "AKSHAY 2",
+      "lastName": "KANDEKAR",
+      "mobile": 8888888888,
+      "city": "PUNE",
+      "address": "PUNE",
+      "bdate": "14 Aug 1998"
+    },
+    {
+      "id": 3,
+      "firstName": "AKSHAY 2",
+      "lastName": "KANDEKAR",
+      "mobile": 8888888888,
+      "city": "PUNE",
+      "address": "PUNE",
+      "bdate": "14 Aug 1998"
+    },
+    {
+      "firstName": "ABC",
+      "lastName": "ABC",
+      "mobile": "7777777777",
+      "city": "PUNE",
+      "address": "PUNE",
+      "bdate": "14/02/2033",
+      "id": 4
+    },
+    {
+      "firstName": "ER",
+      "lastName": "ER",
+      "mobile": "33333333",
+      "city": "RRRTYGU",
+      "address": "tcfvygbhunjimk",
+      "bdate": "12/2/1234",
+      "id": 5
+    },
+    {
+      "firstName": "ER12",
+      "lastName": "ER",
+      "mobile": "33333333",
+      "city": "RRRTYGU",
+      "address": "tcfvygbhunjimk",
+      "bdate": "12/2/1234",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "firstName": "ER99",
+      "lastName": "ER",
+      "mobile": "33333333",
+      "city": "RRRTYGU",
+      "address": "tcfvygbhunjimk",
+      "bdate": "12/2/1234"
+    },
+    {
+      "id": 8,
+      "firstName": "QSD",
+      "lastName": "QSD",
+      "mobile": "8888888888",
+      "city": "PUNE",
+      "address": "PUNE",
+      "bdate": "2021-07-21"
+    }
+  ]
+}

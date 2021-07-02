@@ -1,0 +1,109 @@
+<div class="wrapper p-15 col-lg-5 container mt-4">
+    <div class="card form-wrapper border-primary">
+        <div class="card-header bg-primary" style="margin-right: -1px;">
+            <h4 class="card-title text-white m-0 text-center">Login</h4>
+        </div>
+
+        <div class="card-body">
+           <form [formGroup]="userLogin" (ngSubmit)="checkLogin()">
+            <div class="form-group">
+                <label class="form-label font-weight-medium">Username</label>
+                <input type="text" formControlName="uname" (keydown.space)="$event.preventDefault()" maxlength="20"
+                    class="form-control" placeholder="Enter Username" />
+                <div class="form-text text-danger" *ngIf="l.uname.touched && l.uname.invalid">
+                    <div *ngIf="l.uname.errors.required">Please enter username.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label font-weight-medium">Password</label>
+                <div class="input-group mb-3">
+                    <input [type]="isPwd ? 'password' : 'text'" formControlName="upass"
+                        (keydown.space)="$event.preventDefault()" maxlength="20" class="form-control"
+                        placeholder="Enter Password" />
+                    <span class="input-group-text pwd-show-btn cursor" (click)="isPwd = !isPwd">
+                        <i class="fa fa-eye" [ngClass]="{'fa-eye':isPwd,'fa-eye-slash':!isPwd}"></i>
+                    </span>
+                </div>
+                <div class="form-text text-danger" *ngIf="l.upass.touched && l.upass.invalid">
+                    <div *ngIf="l.upass.errors.required">Please enter password.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!userLogin.valid">Submit</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-info" (click)="open(content)">Register Manager</button>
+            </div>
+           </form>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Manager Profile</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="userManager">
+            <div class="form-group">
+                <label class="form-label font-weight-bold">FirstName</label>
+                <input type="text" formControlName="firstName" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter Firstname" />
+                    <div class="form-text text-danger" *ngIf="c.firstName.touched && c.firstName.invalid">
+                        <div *ngIf="c.firstName.errors.required">Please enter firstname.</div>
+                    </div>   
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">LastName</label>
+                <input type="text" formControlName="lastName" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter LastName" />
+                    <div class="form-text text-danger" *ngIf="c.lastName.touched && c.lastName.invalid">
+                        <div *ngIf="c.lastName.errors.required">Please enter lastname.</div>
+                    </div> 
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">EmailID</label>
+                <input type="email" formControlName="email" (keydown.space)="$event.preventDefault()" maxlength="50" (focusin)="aluse=''" (focusout)="validEmail()"
+                    class="form-control" placeholder="Enter Email" />
+                    <div *ngIf="aluse!=''" style="color: red;">{{aluse}}</div>
+                    <div class="form-text text-danger" *ngIf="c.email.touched && c.email.invalid">
+                        <div *ngIf="c.email.errors.required">Please enter emailid.</div>
+                        <div *ngIf="c.email.errors.pattern">Please enter valid email.</div>
+                    </div> 
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Password</label>
+                <input type="password" formControlName="password" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter City" />
+                    <div class="form-text text-danger" *ngIf="c.password.touched && c.password.invalid">
+                        <div *ngIf="c.password.errors.required">Please enter password.</div>
+                    </div> 
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Address</label>
+                <input type="text" formControlName="address" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter Address" />
+                    <div class="form-text text-danger" *ngIf="c.address.touched && c.address.invalid">
+                        <div *ngIf="c.address.errors.required">Please enter adddress.</div>
+                    </div> 
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Date of Birth</label>
+                <input type="date" formControlName="bdate" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter date of birth" />
+                    <div class="form-text text-danger" *ngIf="c.bdate.touched && c.bdate.invalid">
+                        <div *ngIf="c.bdate.errors.required">Please enter date of birth.</div>
+                    </div> 
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" *ngIf="userManager.valid" (click)="registerManager()">Register Manager</button>
+    </div>
+</ng-template>

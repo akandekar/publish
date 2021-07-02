@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="page-header mt-1" *ngIf="currentuser" style="color: brown;">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Welcome {{currentuser.firstName}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapper" style="overflow: auto;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <h5>Manager Dashboard</h5>
+                </li>
+            </ol>
+        </nav>
+        <div class="d-flex flex-wrap justify-content-between align-items-baseline">
+            <!-- <input type="search" class="form-control search-input mb-3" [(ngModel)]="searchText" (ngModelChange)="resetPageNo()" placeholder="Search by name" /> -->
+            <button class="btn btn-primary btn-sm mb-3" (click)="open(content,'Add Employee')">Add Employee</button>
+            <button type="button" class="btn btn-danger btn-sm" *ngIf="currentuser" (click)="logout()">Logout</button>
+        
+        </div>
+        <table class="table table-responsive-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Address</th>
+                    <th scope="col" class="text-center">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let p of employee ; let i = index">
+                    <tr>
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{p.firstName}}</td>
+                        <td>{{p.lastName}}</td>
+                        <td>{{p.mobile}}</td>
+                        <td>{{p.address}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-link" (click)="open(content,'Update',p)">Edit</button> |
+                            <button class="btn btn-link" (click)="modelAction(p.id)">Delete</button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Employee Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="userThing">
+            <div class="form-group">
+                <label class="form-label font-weight-bold">FirstName</label>
+                <input type="text" formControlName="firstName" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter Firstname" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">LastName</label>
+                <input type="text" formControlName="lastName" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter LastName" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Mobile</label>
+                <input type="text" formControlName="mobile" (keydown.space)="$event.preventDefault()" maxlength="10"
+                    class="form-control" placeholder="Enter Mobile" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">City</label>
+                <input type="text" formControlName="city" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter City" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Address</label>
+                <input type="text" formControlName="address" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter Address" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label font-weight-bold">Date of Birth</label>
+                <input type="date" formControlName="bdate" (keydown.space)="$event.preventDefault()" maxlength="50"
+                    class="form-control" placeholder="Enter date of birth" />
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button *ngIf="userThing.valid" type="button" class="btn btn-outline-dark" (click)="modelAction()">{{action}}</button>
+    </div>
+</ng-template>
